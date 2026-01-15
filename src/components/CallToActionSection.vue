@@ -1,8 +1,7 @@
 <template>
   <section class="section section-cta scroll-animate relative overflow-hidden" aria-labelledby="cta-title">
     <div class="absolute inset-0 bg-gradient-to-br from-compassionMint/30 via-insightTeal/20 to-compassionMint/40"></div>
-    <GeometricPatterns class="absolute inset-0 opacity-30" />
-    <AdvancedVectors :intensity="'high'" class="absolute inset-0 opacity-40" />
+    <CTAVectors class="absolute inset-0 opacity-40" />
     
     <div class="section-inner section-inner-cta relative z-10 mx-auto max-w-6xl px-6 py-8">
       <div class="cta-layout grid gap-8 md:grid-cols-[1.2fr_1fr] items-center">
@@ -116,8 +115,7 @@
 </template>
 
 <script setup>
-import GeometricPatterns from './GeometricPatterns.vue';
-import AdvancedVectors from './AdvancedVectors.vue';
+import CTAVectors from './CTAVectors.vue';
 </script>
 
 <style scoped>

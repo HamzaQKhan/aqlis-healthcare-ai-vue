@@ -4,7 +4,7 @@
     class="section section-behaviors scroll-animate relative overflow-hidden"
     aria-labelledby="operate-title"
   >
-    <OperateVectors class="absolute inset-0 opacity-50" />
+    <OperateVectors class="absolute inset-0 opacity-45" />
     <div class="section-inner relative z-10 mx-auto max-w-5xl px-6 py-4">
       <div class="section-heading mb-8 max-w-xl">
         <h2

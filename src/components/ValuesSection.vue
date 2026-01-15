@@ -4,7 +4,7 @@
     class="section section-values scroll-animate relative overflow-hidden"
     aria-labelledby="values-title"
   >
-    <GeometricPatterns class="absolute inset-0 opacity-30" />
+    <ValuesVectors class="absolute inset-0 opacity-75" />
     <div class="section-inner mx-auto max-w-5xl px-6 py-16">
       <div class="section-heading mb-12 max-w-2xl relative">
         <AnimatedIcon 
@@ -106,5 +106,5 @@
 
 <script setup>
 import AnimatedIcon from './AnimatedIcon.vue';
-import GeometricPatterns from './GeometricPatterns.vue';
+import ValuesVectors from './ValuesVectors.vue';
 </script>

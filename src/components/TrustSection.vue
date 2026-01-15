@@ -4,7 +4,7 @@
     class="section section-trust scroll-animate relative overflow-hidden"
     aria-labelledby="trust-title"
   >
-    <SecurityVectors class="absolute inset-0 opacity-50" />
+    <TrustVectors class="absolute inset-0 opacity-45" />
     <div class="section-inner section-inner-narrow mx-auto max-w-5xl px-6 py-16 relative z-10">
       <div class="trust-layout grid gap-12 items-start md:grid-cols-2">
         <div class="trust-copy">
@@ -197,7 +197,7 @@
 </template>
 
 <script setup>
-import SecurityVectors from './SecurityVectors.vue';
+import TrustVectors from './TrustVectors.vue';
 </script>
 
 <style scoped>

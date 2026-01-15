@@ -4,7 +4,7 @@
     class="section section-solutions scroll-animate relative overflow-hidden"
     aria-labelledby="solutions-title"
   >
-    <AdvancedVectors :intensity="'medium'" class="absolute inset-0 opacity-40" />
+    <SolutionsVectors class="absolute inset-0 opacity-40" />
     <div class="section-inner relative z-10 mx-auto max-w-5xl px-6 py-16">
       <div class="section-heading mb-8 max-w-xl">
         <h2
@@ -144,5 +144,5 @@
 </template>
 
 <script setup>
-import AdvancedVectors from './AdvancedVectors.vue';
+import HealthVectors from './HealthVectors.vue';
 </script>
