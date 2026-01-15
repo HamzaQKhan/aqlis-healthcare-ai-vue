@@ -2,7 +2,7 @@
   <div class="aqlis-page" @mousemove="handleMouseMove">
     <div class="cursor-follower" :style="cursorStyle"></div>
     <SiteHeader />
-    <main>
+    <main class="pt-0">
       <HeroSection />
       <ValuesSection />
       <SolutionsSection />
@@ -43,34 +43,8 @@ onMounted(() => {
   // Add smooth scroll to html
   document.documentElement.style.scrollBehavior = 'smooth';
   
-  // Initialize scroll animations
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate-in');
-        // Once animated, stop observing to prevent re-animation
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  // Observe all sections except hero (hero should always be visible)
-  const sections = document.querySelectorAll('section:not(#hero)');
-  sections.forEach((section) => {
-    section.classList.add('scroll-animate');
-    observer.observe(section);
-  });
-  
-  // Make hero section immediately visible (no animation delay)
-  const heroSection = document.querySelector('#hero');
-  if (heroSection) {
-    heroSection.classList.add('animate-in');
-  }
+  // Scroll animations disabled - removed observer initialization
+  // All sections will be visible immediately without animation delays
 
   // Initialize parallax
   useParallax();
@@ -122,15 +96,24 @@ onMounted(() => {
   opacity: 1;
 }
 
+/* Base scroll animation */
+/* Scroll animations disabled - all elements visible immediately */
 .scroll-animate {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
 }
 
-.scroll-animate.animate-in {
-  opacity: 1;
-  transform: translateY(0);
+.scroll-animate.animate-fade-up,
+.scroll-animate.animate-fade-down,
+.scroll-animate.animate-fade-left,
+.scroll-animate.animate-fade-right,
+.scroll-animate.animate-scale-up,
+.scroll-animate.animate-fade,
+.scroll-animate.animate-rotate {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
 }
 
 /* Hero section should always be visible immediately */
@@ -140,12 +123,37 @@ onMounted(() => {
   transition: none !important;
 }
 
-/* Stagger animation delays - but not for hero */
-section:not(#hero).scroll-animate:nth-of-type(1) { transition-delay: 0.1s; }
-section:not(#hero).scroll-animate:nth-of-type(2) { transition-delay: 0.15s; }
-section:not(#hero).scroll-animate:nth-of-type(3) { transition-delay: 0.2s; }
-section:not(#hero).scroll-animate:nth-of-type(4) { transition-delay: 0.25s; }
-section:not(#hero).scroll-animate:nth-of-type(5) { transition-delay: 0.3s; }
+/* Scroll animations disabled - all elements visible by default */
+[data-stagger-item] {
+  opacity: 1 !important;
+}
+
+.section-heading h2,
+.section-heading h3 {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.section-lead {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.card.scroll-animate {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+}
+
+.impact-item.scroll-animate {
+  opacity: 1 !important;
+  transform: scale(1) translateY(0) !important;
+}
+
+/* Performance optimization */
+.scroll-animate {
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
 
 .site-header {
   position: sticky;
@@ -566,6 +574,13 @@ section:not(#hero).scroll-animate:nth-of-type(5) { transition-delay: 0.3s; }
   transform: translateY(-4px);
   border-color: var(--insight-teal);
   box-shadow: 0 18px 40px rgba(54, 126, 114, 0.18);
+}
+
+/* Card-soft hover effect - lifts card up on hover */
+.card.card-soft:hover {
+  transform: translateY(-8px);
+  border-color: var(--insight-teal);
+  box-shadow: 0 20px 50px rgba(54, 126, 114, 0.25);
 }
 
 .card h3 {

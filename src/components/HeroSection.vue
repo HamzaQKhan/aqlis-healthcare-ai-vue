@@ -15,6 +15,40 @@
       <div class="particle absolute w-2 h-2 bg-compassionMint/30 rounded-full" style="left: 80%; top: 20%; animation: float 7s ease-in-out infinite 1s;"></div>
     </div>
     
+    <!-- Advanced Vector Animations -->
+    <FloatingVectors :count="8" class="absolute inset-0 z-0" />
+    <AdvancedVectors :intensity="'high'" class="absolute inset-0 z-0" />
+    <GeometricPatterns class="absolute inset-0 z-0" />
+    <AnimatedBackground class="absolute inset-0 z-0" />
+    
+    <!-- Animated Vector Icons -->
+    <div class="hero-vector-icons absolute inset-0 pointer-events-none z-0">
+      <AnimatedIcon 
+        type="healthcare" 
+        :size="120" 
+        color="#367e72" 
+        :opacity="0.15"
+        class="absolute top-20 right-20"
+        :animate-on-scroll="true"
+      />
+      <AnimatedIcon 
+        type="shield" 
+        :size="100" 
+        color="#246f66" 
+        :opacity="0.12"
+        class="absolute bottom-32 left-16"
+        :animate-on-scroll="true"
+      />
+      <AnimatedIcon 
+        type="heart" 
+        :size="80" 
+        color="#aec8b9" 
+        :opacity="0.18"
+        class="absolute top-1/2 right-1/4"
+        :animate-on-scroll="true"
+      />
+    </div>
+    
     <div
       class="hero-inner relative mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 lg:grid-cols-[1.3fr_1fr] z-10"
     >
@@ -212,3 +246,11 @@
     </div>
   </section>
 </template>
+
+<script setup>
+import FloatingVectors from './FloatingVectors.vue';
+import AnimatedIcon from './AnimatedIcon.vue';
+import AdvancedVectors from './AdvancedVectors.vue';
+import GeometricPatterns from './GeometricPatterns.vue';
+import AnimatedBackground from './AnimatedBackground.vue';
+</script>

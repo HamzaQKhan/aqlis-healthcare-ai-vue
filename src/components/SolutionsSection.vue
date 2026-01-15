@@ -1,10 +1,11 @@
 <template>
   <section
     id="solutions"
-    class="section section-solutions scroll-animate"
+    class="section section-solutions scroll-animate relative overflow-hidden"
     aria-labelledby="solutions-title"
   >
-    <div class="section-inner mx-auto max-w-5xl px-6 py-16">
+    <AdvancedVectors :intensity="'medium'" class="absolute inset-0 opacity-40" />
+    <div class="section-inner relative z-10 mx-auto max-w-5xl px-6 py-16">
       <div class="section-heading mb-8 max-w-xl">
         <h2
           id="solutions-title"
@@ -22,7 +23,7 @@
         class="grid grid-3 gap-5 md:grid-cols-2 lg:grid-cols-3"
       >
         <article
-          class="card card-soft group relative overflow-hidden rounded-xl border-2 border-compassionMint/80 bg-compassionMint p-5 shadow-[0_10px_26px_rgba(54,126,114,0.08)] transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_25px_60px_rgba(54,126,114,0.25)] hover:scale-[1.02] hover:border-insightTeal/50"
+          class="card card-soft rounded-xl border border-compassionMint/80 bg-compassionMint p-5 shadow-[0_10px_26px_rgba(54,126,114,0.08)]"
         >
           <h3 class="text-base font-semibold text-humaneGrey">
             Hospital intelligence
@@ -40,7 +41,7 @@
           </ul>
         </article>
         <article
-          class="card card-soft group relative overflow-hidden rounded-xl border-2 border-compassionMint/80 bg-compassionMint p-5 shadow-[0_10px_26px_rgba(54,126,114,0.08)] transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_25px_60px_rgba(54,126,114,0.25)] hover:scale-[1.02] hover:border-insightTeal/50"
+          class="card card-soft rounded-xl border border-compassionMint/80 bg-compassionMint p-5 shadow-[0_10px_26px_rgba(54,126,114,0.08)]"
         >
           <h3 class="text-base font-semibold text-humaneGrey">
             Clinician workflow support
@@ -58,7 +59,7 @@
           </ul>
         </article>
         <article
-          class="card card-soft group relative overflow-hidden rounded-xl border-2 border-compassionMint/80 bg-compassionMint p-5 shadow-[0_10px_26px_rgba(54,126,114,0.08)] transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_25px_60px_rgba(54,126,114,0.25)] hover:scale-[1.02] hover:border-insightTeal/50"
+          class="card card-soft rounded-xl border border-compassionMint/80 bg-compassionMint p-5 shadow-[0_10px_26px_rgba(54,126,114,0.08)]"
         >
           <h3 class="text-base font-semibold text-humaneGrey">
             Secure data insights
@@ -141,3 +142,7 @@
     </div>
   </section>
 </template>
+
+<script setup>
+import AdvancedVectors from './AdvancedVectors.vue';
+</script>

@@ -1,14 +1,23 @@
 <template>
   <section
     id="values"
-    class="section section-values scroll-animate"
+    class="section section-values scroll-animate relative overflow-hidden"
     aria-labelledby="values-title"
   >
+    <GeometricPatterns class="absolute inset-0 opacity-30" />
     <div class="section-inner mx-auto max-w-5xl px-6 py-16">
-      <div class="section-heading mb-12 max-w-2xl">
+      <div class="section-heading mb-12 max-w-2xl relative">
+        <AnimatedIcon 
+          type="heart" 
+          :size="60" 
+          color="#367e72" 
+          :opacity="0.1"
+          class="absolute -left-8 top-0"
+          :animate-on-scroll="true"
+        />
         <h2
           id="values-title"
-          class="text-3xl font-bold tracking-tight text-humaneGrey sm:text-4xl"
+          class="text-3xl font-bold tracking-tight text-humaneGrey sm:text-4xl relative z-10"
         >
           Values that guide every decision
         </h2>
@@ -20,9 +29,12 @@
       </div>
       <div
         class="grid grid-4 gap-5 md:grid-cols-2 lg:grid-cols-4"
+        data-stagger="true"
+        data-stagger-delay="100"
       >
         <article
           class="card group relative overflow-hidden rounded-xl border-2 border-compassionMint/50 bg-gradient-to-br from-pureWhite to-compassionMint/20 p-6 shadow-[0_10px_26px_rgba(54,126,114,0.08)] transition-all duration-500 hover:-translate-y-3 hover:border-insightTeal hover:shadow-[0_25px_60px_rgba(54,126,114,0.3)] hover:scale-[1.02]"
+          data-stagger-item="true"
         >
           <div class="card-icon mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-insightTeal/20 via-ethicalTeal/20 to-insightTeal/20 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:bg-gradient-to-br group-hover:from-insightTeal/30 group-hover:via-ethicalTeal/30 group-hover:to-insightTeal/30">
             <svg class="h-8 w-8 text-insightTeal transition-transform duration-500 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -39,6 +51,7 @@
         </article>
         <article
           class="card group relative overflow-hidden rounded-xl border-2 border-compassionMint/50 bg-gradient-to-br from-pureWhite to-compassionMint/20 p-6 shadow-[0_10px_26px_rgba(54,126,114,0.08)] transition-all duration-500 hover:-translate-y-3 hover:border-insightTeal hover:shadow-[0_25px_60px_rgba(54,126,114,0.3)] hover:scale-[1.02]"
+          data-stagger-item="true"
         >
           <div class="card-icon mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-insightTeal/20 via-ethicalTeal/20 to-insightTeal/20 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:bg-gradient-to-br group-hover:from-insightTeal/30 group-hover:via-ethicalTeal/30 group-hover:to-insightTeal/30">
             <svg class="h-8 w-8 text-insightTeal transition-transform duration-500 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -56,6 +69,7 @@
         </article>
         <article
           class="card group relative overflow-hidden rounded-xl border-2 border-compassionMint/50 bg-gradient-to-br from-pureWhite to-compassionMint/20 p-6 shadow-[0_10px_26px_rgba(54,126,114,0.08)] transition-all duration-500 hover:-translate-y-3 hover:border-insightTeal hover:shadow-[0_25px_60px_rgba(54,126,114,0.3)] hover:scale-[1.02]"
+          data-stagger-item="true"
         >
           <div class="card-icon mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-insightTeal/20 via-ethicalTeal/20 to-insightTeal/20 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:bg-gradient-to-br group-hover:from-insightTeal/30 group-hover:via-ethicalTeal/30 group-hover:to-insightTeal/30">
             <svg class="h-8 w-8 text-insightTeal transition-transform duration-500 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -72,6 +86,7 @@
         </article>
         <article
           class="card group relative overflow-hidden rounded-xl border-2 border-compassionMint/50 bg-gradient-to-br from-pureWhite to-compassionMint/20 p-6 shadow-[0_10px_26px_rgba(54,126,114,0.08)] transition-all duration-500 hover:-translate-y-3 hover:border-insightTeal hover:shadow-[0_25px_60px_rgba(54,126,114,0.3)] hover:scale-[1.02]"
+          data-stagger-item="true"
         >
           <div class="card-icon mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-insightTeal/20 via-ethicalTeal/20 to-insightTeal/20 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:bg-gradient-to-br group-hover:from-insightTeal/30 group-hover:via-ethicalTeal/30 group-hover:to-insightTeal/30">
             <svg class="h-8 w-8 text-insightTeal transition-transform duration-500 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -88,3 +103,8 @@
     </div>
   </section>
 </template>
+
+<script setup>
+import AnimatedIcon from './AnimatedIcon.vue';
+import GeometricPatterns from './GeometricPatterns.vue';
+</script>
