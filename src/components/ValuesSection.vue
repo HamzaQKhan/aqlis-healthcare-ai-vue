@@ -1,7 +1,8 @@
 <template>
   <section
     id="values"
-    class="section section-values scroll-animate relative overflow-hidden"
+    class="section section-values scroll-animate relative overflow-hidden z-20"
+    style="background-color: var(--pure-white); position: relative;"
     aria-labelledby="values-title"
   >
     <ValuesVectors class="absolute inset-0 opacity-75" />

@@ -2,12 +2,13 @@
   <div class="aqlis-page" @mousemove="handleMouseMove">
     <div class="cursor-follower" :style="cursorStyle"></div>
     <SiteHeader />
-    <main class="pt-0">
+    <main class="pt-0 relative">
       <HeroSection />
+      <div class="section-spacer relative z-10" style="min-height: 100vh; background: transparent; pointer-events: none;"></div>
       <ValuesSection />
       <SolutionsSection />
       <OperateSection />
-      <TrustSection />
+      <ClientsSlider />
       <CallToActionSection />
     </main>
     <SiteFooter :current-year="currentYear" />
@@ -15,15 +16,21 @@
 </template>
 
 <script setup>
-import { computed, ref, onMounted } from 'vue';
+import { computed, ref, onMounted, onBeforeUnmount } from 'vue';
 import { useParallax } from '../composables/useScrollAnimation';
+import Lenis from 'lenis';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+// Register GSAP plugins
+gsap.registerPlugin(ScrollTrigger);
 
 import SiteHeader from './SiteHeader.vue';
 import HeroSection from './HeroSection.vue';
 import ValuesSection from './ValuesSection.vue';
 import SolutionsSection from './SolutionsSection.vue';
 import OperateSection from './OperateSection.vue';
-import TrustSection from './TrustSection.vue';
+import ClientsSlider from './ClientsSlider.vue';
 import CallToActionSection from './CallToActionSection.vue';
 import SiteFooter from './SiteFooter.vue';
 
@@ -38,13 +45,31 @@ const handleMouseMove = (e) => {
   };
 };
 
-// Smooth scroll behavior
+// Lenis Smooth Scroll
+let lenis = null;
+
 onMounted(() => {
-  // Add smooth scroll to html
-  document.documentElement.style.scrollBehavior = 'smooth';
-  
-  // Scroll animations disabled - removed observer initialization
-  // All sections will be visible immediately without animation delays
+  // Initialize Lenis Smooth Scroll
+  lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    orientation: 'vertical',
+    gestureOrientation: 'vertical',
+    smoothWheel: true,
+    wheelMultiplier: 1,
+    smoothTouch: false,
+    touchMultiplier: 2,
+    infinite: false,
+  });
+
+  // Connect Lenis with GSAP ScrollTrigger
+  lenis.on('scroll', ScrollTrigger.update);
+
+  gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+  });
+
+  gsap.ticker.lagSmoothing(0);
 
   // Initialize parallax
   useParallax();
@@ -62,6 +87,13 @@ onMounted(() => {
   };
 
   window.addEventListener('scroll', handleParallax, { passive: true });
+});
+
+onBeforeUnmount(() => {
+  if (lenis) {
+    lenis.destroy();
+  }
+  ScrollTrigger.getAll().forEach(trigger => trigger.kill());
 });
 </script>
 
