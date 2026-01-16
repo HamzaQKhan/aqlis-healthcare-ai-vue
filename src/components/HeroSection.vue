@@ -17,7 +17,7 @@
     
     <!-- Health-Related Vector Animations - Only on left side (text area) -->
     <div class="hero-vectors-wrapper absolute left-0 top-0 bottom-0 w-full lg:w-[60%] max-w-[700px] z-[1] pointer-events-none overflow-hidden">
-      <HealthVectors class="h-full w-full opacity-[0.50]" />
+      <!-- <HealthVectors class="h-full w-full opacity-[0.50]" /> -->
     </div>
     
     <div
