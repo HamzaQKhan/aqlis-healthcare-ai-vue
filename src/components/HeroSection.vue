@@ -273,8 +273,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const VIDEO_URLS = [
   'https://customer-cbeadsgr09pnsezs.cloudflarestream.com/90bb1b34646b81b3b63e5a854ea00da3/manifest/video.m3u8',
-  'https://customer-cbeadsgr09pnsezs.cloudflarestream.com/df176a2fb2ea2b64bd21ae1c10d3af6a/manifest/video.m3u8',
-  'https://customer-cbeadsgr09pnsezs.cloudflarestream.com/12a9780eeb1ea015801a5f55cf2e9d3d/manifest/video.m3u8',
   'https://customer-cbeadsgr09pnsezs.cloudflarestream.com/964cb3eddff1a67e3772aac9a7aceea2/manifest/video.m3u8',
   'https://customer-cbeadsgr09pnsezs.cloudflarestream.com/dd17599dfa77f41517133fa7a4967535/manifest/video.m3u8',
 ];
@@ -505,6 +503,7 @@ onBeforeUnmount(() => {
   display: inline-block;
   overflow: hidden;
   vertical-align: bottom;
+  margin-right: 0.75rem; /* Add space between words */
 }
 
 .word {

@@ -8,6 +8,7 @@
       <ValuesSection />
       <SolutionsSection />
       <OperateSection />
+      <HorizontalScrollSection />
       <ClientsSlider />
       <CallToActionSection />
     </main>
@@ -30,6 +31,7 @@ import HeroSection from './HeroSection.vue';
 import ValuesSection from './ValuesSection.vue';
 import SolutionsSection from './SolutionsSection.vue';
 import OperateSection from './OperateSection.vue';
+import HorizontalScrollSection from './HorizontalScrollSection.vue';
 import ClientsSlider from './ClientsSlider.vue';
 import CallToActionSection from './CallToActionSection.vue';
 import SiteFooter from './SiteFooter.vue';
