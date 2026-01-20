@@ -4,86 +4,96 @@
     <div ref="scrollContainer" class="horizontal-scroll-container flex">
       <!-- Page 1 -->
       <div class="scroll-page min-w-full h-screen flex items-center justify-center relative" data-page="1">
-        <!-- Background elements -->
-        <div class="absolute inset-0 bg-gradient-to-br from-humaneGrey via-humaneGrey/95 to-humaneGrey/90 z-0"></div>
-        <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 2px 2px, #367e72 1px, transparent 0); background-size: 50px 50px;"></div>
+        <!-- Background elements - Optimized -->
+        <div class="absolute inset-0 bg-gradient-to-br from-humaneGrey via-humaneGrey/95 to-humaneGrey/90 z-0" style="transform: translateZ(0); contain: strict;"></div>
+        <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 2px 2px, #367e72 1px, transparent 0); background-size: 50px 50px; transform: translateZ(0); contain: strict; will-change: auto;"></div>
         
         <!-- Images Only - Page 1 -->
-        <div class="animated-elements absolute inset-0 flex items-center justify-center gap-6 z-[5]">
-          <!-- Professional Healthcare Images - Landscape (Wide) Format -->
+        <div class="animated-elements absolute inset-0 flex items-center justify-center gap-6 z-[5]" style="transform: translateZ(0); will-change: contents;">
+          <!-- Professional Healthcare Images - Using Local Assets -->
           <img 
-            src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=800&h=400&fit=crop&q=90" 
+            :src="doctorsImg" 
             alt="Healthcare Professional" 
-            class="w-[500px] h-[400px] object-cover rounded-2xl opacity-60 animate-float-1 shadow-2xl"
-            style="top: 15%; left: 5%;"
+            class="w-[500px] h-[400px] object-cover rounded-2xl opacity-60 animate-float-1"
+            style="top: 15%; left: 5%; transform: translateZ(0); will-change: transform;"
+            loading="eager"
           />
           <img 
-            src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800&h=400&fit=crop&q=90" 
+            :src="medicalMachineRoomImg" 
             alt="Medical Team" 
-            class="w-[500px] h-[400px] object-cover rounded-xl opacity-55 animate-float-2 shadow-xl"
-            style="bottom: 15%; right: 5%;"
+            class="w-[500px] h-[400px] object-cover rounded-xl opacity-55 animate-float-2"
+            style="bottom: 15%; right: 5%; transform: translateZ(0); will-change: transform;"
+            loading="eager"
           />
           <img 
-            src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=400&fit=crop&q=90" 
+            :src="machineImg" 
             alt="Hospital Technology" 
-            class="w-[500px] h-[400px] object-cover rounded-2xl opacity-50 animate-float-3 shadow-lg"
-            style="top: 30%; left: 25%;"
+            class="w-[500px] h-[400px] object-cover rounded-2xl opacity-50 animate-float-3"
+            style="top: 30%; left: 25%; transform: translateZ(0); will-change: transform;"
+            loading="eager"
           />
           <img 
-            src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=800&h=400&fit=crop&q=90" 
+            :src="brainImg" 
             alt="Medical Care" 
-            class="w-[500px] h-[400px] object-cover rounded-xl opacity-58 animate-float-4 shadow-xl"
-            style="bottom: 20%; left: 15%;"
+            class="w-[500px] h-[400px] object-cover rounded-xl opacity-58 animate-float-4"
+            style="bottom: 20%; left: 15%; transform: translateZ(0); will-change: transform;"
+            loading="eager"
           />
           <!-- Left side image to fill empty area -->
           <img 
-            src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=400&fit=crop&q=90" 
+            :src="doctorsImg" 
             alt="Healthcare Professional" 
-            class="w-[500px] h-[400px] object-cover rounded-2xl opacity-65 animate-float-1 shadow-2xl"
-            style="top: 25%; left: 2%;"
+            class="w-[500px] h-[400px] object-cover rounded-2xl opacity-65 animate-float-1"
+            style="top: 25%; left: 2%; transform: translateZ(0); will-change: transform;"
+            loading="eager"
           />
         </div>
       </div>
 
       <!-- Page 2 -->
       <div class="scroll-page min-w-full h-screen flex items-center justify-center relative" data-page="2">
-        <!-- Background elements -->
-        <div class="absolute inset-0 bg-gradient-to-br from-insightTeal/90 via-ethicalTeal/85 to-insightTeal/90 z-0"></div>
-        <div class="absolute inset-0 opacity-15" style="background-image: radial-gradient(circle at 2px 2px, #ffffff 1px, transparent 0); background-size: 40px 40px;"></div>
+        <!-- Background elements - Optimized -->
+        <div class="absolute inset-0 bg-gradient-to-br from-insightTeal/90 via-ethicalTeal/85 to-insightTeal/90 z-0" style="transform: translateZ(0); contain: strict;"></div>
+        <div class="absolute inset-0 opacity-15" style="background-image: radial-gradient(circle at 2px 2px, #ffffff 1px, transparent 0); background-size: 40px 40px; transform: translateZ(0); contain: strict; will-change: auto;"></div>
         
         <!-- Images Only - Page 2 -->
-        <div class="animated-elements absolute inset-0 flex items-center justify-center gap-6 z-[5]">
-          <!-- Professional AI & Healthcare Technology Images - Landscape (Wide) Format -->
+        <div class="animated-elements absolute inset-0 flex items-center justify-center gap-6 z-[5]" style="transform: translateZ(0); will-change: contents;">
+          <!-- Professional AI & Healthcare Technology Images - Using Local Assets -->
           <img 
-            src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=400&fit=crop&q=90" 
+            :src="brainImg" 
             alt="AI Technology" 
-            class="w-[500px] h-[400px] object-cover rounded-2xl opacity-60 animate-float-1 shadow-2xl"
-            style="top: 15%; left: 5%;"
+            class="w-[500px] h-[400px] object-cover rounded-2xl opacity-60 animate-float-1"
+            style="top: 15%; left: 5%; transform: translateZ(0); will-change: transform;"
+            loading="eager"
           />
           <img 
-            src="https://images.unsplash.com/photo-1555255707-c07966088b7b?w=800&h=400&fit=crop&q=90" 
+            :src="machineImg" 
             alt="Data Analytics" 
-            class="w-[500px] h-[400px] object-cover rounded-xl opacity-55 animate-float-2 shadow-xl"
-            style="bottom: 15%; right: 5%;"
+            class="w-[500px] h-[400px] object-cover rounded-xl opacity-55 animate-float-2"
+            style="bottom: 15%; right: 5%; transform: translateZ(0); will-change: transform;"
+            loading="eager"
           />
           <img 
-            src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=400&fit=crop&q=90" 
+            :src="medicalMachineRoomImg" 
             alt="Digital Health" 
-            class="w-[500px] h-[400px] object-cover rounded-2xl opacity-50 animate-float-3 shadow-lg"
-            style="top: 30%; left: 25%;"
+            class="w-[500px] h-[400px] object-cover rounded-2xl opacity-50 animate-float-3"
+            style="top: 30%; left: 25%; transform: translateZ(0); will-change: transform;"
+            loading="eager"
           />
           <img 
-            src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=400&fit=crop&q=90" 
+            :src="doctorsImg" 
             alt="Healthcare Innovation" 
-            class="w-[500px] h-[400px] object-cover rounded-xl opacity-58 animate-float-4 shadow-xl"
-            style="bottom: 20%; left: 15%;"
+            class="w-[500px] h-[400px] object-cover rounded-xl opacity-58 animate-float-4"
+            style="bottom: 20%; left: 15%; transform: translateZ(0); will-change: transform;"
+            loading="eager"
           />
           <!-- Left side image to fill empty area -->
           <img 
-            src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800&h=400&fit=crop&q=90" 
+            :src="brainImg" 
             alt="Medical Technology" 
-            class="w-[500px] h-[400px] object-cover rounded-2xl opacity-65 animate-float-2 shadow-2xl"
-            style="top: 25%; left: 2%;"
+            class="w-[500px] h-[400px] object-cover rounded-2xl opacity-65 animate-float-2"
+            style="top: 25%; left: 2%; transform: translateZ(0); will-change: transform;"
+            loading="eager"
           />
         </div>
       </div>
@@ -106,6 +116,12 @@ import { ref, onMounted, onBeforeUnmount, nextTick } from 'vue';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+// Import local images
+import brainImg from '../assets/images/brain.jpg';
+import doctorsImg from '../assets/images/doctors.jpg';
+import machineImg from '../assets/images/machine.jpg';
+import medicalMachineRoomImg from '../assets/images/medical_machine_room.jpg';
+
 gsap.registerPlugin(ScrollTrigger);
 
 const sectionRef = ref(null);
@@ -116,6 +132,20 @@ let scrollTriggerInstance = null;
 onMounted(async () => {
   await nextTick();
   
+  // Preload local images for better performance
+  const localImages = [
+    brainImg,
+    doctorsImg,
+    machineImg,
+    medicalMachineRoomImg,
+  ];
+  
+  // Preload images
+  localImages.forEach(imgSrc => {
+    const img = new Image();
+    img.src = imgSrc;
+  });
+  
   // Wait a bit more for Lenis to initialize
   setTimeout(() => {
     if (sectionRef.value && scrollContainer.value) {
@@ -125,7 +155,7 @@ onMounted(async () => {
       // Calculate scroll distance - each page is 100vw
       const scrollDistance = (totalPages - 1) * window.innerWidth;
 
-      // Create horizontal scroll animation
+      // Create horizontal scroll animation with optimized settings
       scrollTriggerInstance = gsap.to(scrollContainer.value, {
         x: () => -scrollDistance,
         ease: 'none',
@@ -134,17 +164,23 @@ onMounted(async () => {
           start: 'top top',
           end: () => `+=${scrollDistance}`,
           pin: true,
-          scrub: 1,
+          scrub: 0.3, // Ultra-smooth scrubbing
           invalidateOnRefresh: true,
           anticipatePin: 1,
+          markers: false,
           onUpdate: (self) => {
-            // Calculate current page based on progress
-            const progress = self.progress;
-            const pageIndex = Math.min(
-              Math.max(Math.floor(progress * totalPages) + 1, 1),
-              totalPages
-            );
-            currentPage.value = pageIndex;
+            // Debounce page updates for better performance
+            if (!self.updateTimeout) {
+              self.updateTimeout = requestAnimationFrame(() => {
+                const progress = self.progress;
+                const pageIndex = Math.min(
+                  Math.max(Math.floor(progress * totalPages) + 1, 1),
+                  totalPages
+                );
+                currentPage.value = pageIndex;
+                self.updateTimeout = null;
+              });
+            }
           },
         },
       });
@@ -172,6 +208,8 @@ onBeforeUnmount(() => {
   position: relative;
   height: 100vh;
   overflow: hidden;
+  contain: strict;
+  isolation: isolate;
 }
 
 .horizontal-scroll-container {
@@ -180,11 +218,22 @@ onBeforeUnmount(() => {
   height: 100vh;
   will-change: transform;
   position: relative;
+  transform: translateZ(0); /* GPU acceleration */
+  backface-visibility: hidden;
+  perspective: 1000px;
+  contain: strict;
+  isolation: isolate;
+  transform-style: preserve-3d;
 }
 
 .scroll-page {
   position: relative;
   overflow: hidden;
+  transform: translateZ(0); /* GPU acceleration */
+  will-change: transform;
+  contain: strict;
+  isolation: isolate;
+  transform-style: preserve-3d;
 }
 
 .page-content {
@@ -194,6 +243,20 @@ onBeforeUnmount(() => {
 
 .progress-dot {
   transition: all 0.3s ease;
+  will-change: width, background-color;
+  transform: translateZ(0);
+}
+
+/* Image optimization */
+.horizontal-scroll-section img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: auto;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  perspective: 1000;
+  contain: layout style paint;
 }
 
 /* Smooth transitions */
@@ -202,56 +265,76 @@ onBeforeUnmount(() => {
   perspective: 1000px;
 }
 
-/* Floating animations */
+/* Floating animations - Reduced movement for better performance */
 @keyframes float-1 {
   0%, 100% {
-    transform: translateY(0px) translateX(0px);
+    transform: translate3d(0, 0, 0);
   }
   50% {
-    transform: translateY(-15px) translateX(8px);
+    transform: translate3d(5px, -10px, 0);
   }
 }
 
 @keyframes float-2 {
   0%, 100% {
-    transform: translateY(0px) translateX(0px);
+    transform: translate3d(0, 0, 0);
   }
   50% {
-    transform: translateY(12px) translateX(-12px);
+    transform: translate3d(-8px, 8px, 0);
   }
 }
 
 @keyframes float-3 {
   0%, 100% {
-    transform: translateY(0px) translateX(0px);
+    transform: translate3d(0, 0, 0);
   }
   50% {
-    transform: translateY(-12px) translateX(15px);
+    transform: translate3d(10px, -8px, 0);
   }
 }
 
 @keyframes float-4 {
   0%, 100% {
-    transform: translateY(0px) translateX(0px);
+    transform: translate3d(0, 0, 0);
   }
   50% {
-    transform: translateY(10px) translateX(-10px);
+    transform: translate3d(-6px, 6px, 0);
   }
 }
 
 .animate-float-1 {
-  animation: float-1 8s ease-in-out infinite;
+  animation: float-1 12s ease-in-out infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 .animate-float-2 {
-  animation: float-2 10s ease-in-out infinite;
+  animation: float-2 14s ease-in-out infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 .animate-float-3 {
-  animation: float-3 9s ease-in-out infinite;
+  animation: float-3 13s ease-in-out infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 .animate-float-4 {
-  animation: float-4 11s ease-in-out infinite;
+  animation: float-4 15s ease-in-out infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 </style>

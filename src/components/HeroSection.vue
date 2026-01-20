@@ -7,8 +7,8 @@
   >
     <!-- Video Background -->
     <div ref="videoContainer" class="absolute inset-0 z-0">
-      <HLSVideo
-        :src="randomVideo"
+      <OptimizedVideo
+        :optimized-src="randomOptimizedVideo"
         class="w-full h-full object-cover"
       />
       <!-- Overlay for text readability -->
@@ -21,15 +21,7 @@
         ref="subtitleText"
         class="text-muted-custom text-sm md:text-base uppercase tracking-widest mb-6"
       >
-        <span class="word-wrapper inline-block overflow-hidden">
-          <span class="word inline-block">AI-Powered</span>
-        </span>
-        <span class="word-wrapper inline-block overflow-hidden">
-          <span class="word inline-block">Healthcare</span>
-        </span>
-        <span class="word-wrapper inline-block overflow-hidden">
-          <span class="word inline-block">Solutions</span>
-        </span>
+        AI-Powered Healthcare Solutions
       </p>
 
       <h1
@@ -37,86 +29,15 @@
         ref="titleText"
         class="text-hero mb-8"
       >
-        <div class="title-line">
-          <span class="word-wrapper inline-block overflow-hidden">
-            <span class="word inline-block">Empathetic</span>
-          </span>
-          <span class="word-wrapper inline-block overflow-hidden">
-            <span class="word inline-block">AI</span>
-          </span>
-          <span class="word-wrapper inline-block overflow-hidden">
-            <span class="word inline-block">for</span>
-          </span>
-        </div>
-        <br />
-        <div class="title-line">
-          <span class="word-wrapper inline-block overflow-hidden">
-            <span class="word accent-teal inline-block">Compassionate</span>
-          </span>
-          <span class="word-wrapper inline-block overflow-hidden">
-            <span class="word accent-teal inline-block">Care</span>
-          </span>
-        </div>
+        Empathetic AI for<br />
+        <span class="accent-teal">Compassionate Care</span>
       </h1>
 
       <p
         ref="bodyText"
         class="text-body max-w-2xl mx-auto mb-12"
       >
-        <span class="word-wrapper inline-block overflow-hidden">
-          <span class="word inline-block">Transforming</span>
-        </span>
-        <span class="word-wrapper inline-block overflow-hidden">
-          <span class="word inline-block">patient</span>
-        </span>
-        <span class="word-wrapper inline-block overflow-hidden">
-          <span class="word inline-block">outcomes</span>
-        </span>
-        <span class="word-wrapper inline-block overflow-hidden">
-          <span class="word inline-block">through</span>
-        </span>
-        <span class="word-wrapper inline-block overflow-hidden">
-          <span class="word inline-block">intelligent,</span>
-        </span>
-        <span class="word-wrapper inline-block overflow-hidden">
-          <span class="word inline-block">privacy-first</span>
-        </span>
-        <span class="word-wrapper inline-block overflow-hidden">
-          <span class="word inline-block">healthcare</span>
-        </span>
-        <span class="word-wrapper inline-block overflow-hidden">
-          <span class="word inline-block">technology</span>
-        </span>
-        <span class="word-wrapper inline-block overflow-hidden">
-          <span class="word inline-block">that</span>
-        </span>
-        <span class="word-wrapper inline-block overflow-hidden">
-          <span class="word inline-block">puts</span>
-        </span>
-        <span class="word-wrapper inline-block overflow-hidden">
-          <span class="word inline-block">human</span>
-        </span>
-        <span class="word-wrapper inline-block overflow-hidden">
-          <span class="word inline-block">connection</span>
-        </span>
-        <span class="word-wrapper inline-block overflow-hidden">
-          <span class="word inline-block">at</span>
-        </span>
-        <span class="word-wrapper inline-block overflow-hidden">
-          <span class="word inline-block">the</span>
-        </span>
-        <span class="word-wrapper inline-block overflow-hidden">
-          <span class="word inline-block">center</span>
-        </span>
-        <span class="word-wrapper inline-block overflow-hidden">
-          <span class="word inline-block">of</span>
-        </span>
-        <span class="word-wrapper inline-block overflow-hidden">
-          <span class="word inline-block">every</span>
-        </span>
-        <span class="word-wrapper inline-block overflow-hidden">
-          <span class="word inline-block">interaction.</span>
-        </span>
+        Transforming patient outcomes through intelligent, privacy-first healthcare technology that puts human connection at the center of every interaction.
       </p>
 
       <div
@@ -263,7 +184,7 @@
 import { computed, ref, onMounted, onBeforeUnmount } from 'vue';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import HLSVideo from './HLSVideo.vue';
+import OptimizedVideo from './OptimizedVideo.vue';
 // OLD IMPORTS - COMMENTED OUT
 // import HealthVectors from './HealthVectors.vue';
 // import HealthcareIllustration from './HealthcareIllustration.vue';
@@ -271,14 +192,21 @@ import HLSVideo from './HLSVideo.vue';
 // Register GSAP ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
-const VIDEO_URLS = [
-  'https://customer-cbeadsgr09pnsezs.cloudflarestream.com/90bb1b34646b81b3b63e5a854ea00da3/manifest/video.m3u8',
-  'https://customer-cbeadsgr09pnsezs.cloudflarestream.com/964cb3eddff1a67e3772aac9a7aceea2/manifest/video.m3u8',
-  'https://customer-cbeadsgr09pnsezs.cloudflarestream.com/dd17599dfa77f41517133fa7a4967535/manifest/video.m3u8',
+import stars from '../assets/videos/stars.mp4';
+import clouds from '../assets/videos/clouds.mp4';
+import waves_animation from '../assets/videos/waves_animation.mp4';
+
+const OPTIMIZED_VIDEO_URLS = [
+  stars,
+  clouds,
+  waves_animation,
 ];
 
-const randomVideo = computed(() => {
-  return VIDEO_URLS[Math.floor(Math.random() * VIDEO_URLS.length)];
+const randomOptimizedVideo = computed(() => {
+  if (OPTIMIZED_VIDEO_URLS.length > 0) {
+    return OPTIMIZED_VIDEO_URLS[Math.floor(Math.random() * OPTIMIZED_VIDEO_URLS.length)];
+  }
+  return null;
 });
 
 const heroSection = ref(null);
@@ -314,70 +242,57 @@ const handleScroll = () => {
   }
 };
 
-// Split text into words for animation
-const splitTextIntoWords = (element) => {
-  if (!element) return [];
-  const words = element.querySelectorAll('.word');
-  return Array.from(words);
-};
-
 onMounted(() => {
   window.addEventListener('scroll', handleScroll, { passive: true });
   handleScroll(); // Initial call
 
-  // Setup GSAP Text Reveal Animations (Jomor Design style)
+  // Setup GSAP Fade-in Animations (Simplified)
   if (subtitleText.value && titleText.value && bodyText.value && buttonContainer.value) {
-    // Animate subtitle words
-    const subtitleWords = splitTextIntoWords(subtitleText.value);
+    // Animate subtitle
     gsap.fromTo(
-      subtitleWords,
+      subtitleText.value,
       {
-        y: '100%',
+        y: 30,
         opacity: 0,
       },
       {
-        y: '0%',
+        y: 0,
         opacity: 1,
         duration: 0.8,
         ease: 'power3.out',
-        stagger: 0.1,
         delay: 0.2,
       }
     );
 
-    // Animate title words with stagger
-    const titleWords = splitTextIntoWords(titleText.value);
+    // Animate title
     gsap.fromTo(
-      titleWords,
+      titleText.value,
       {
-        y: '120%',
+        y: 40,
         opacity: 0,
       },
       {
-        y: '0%',
+        y: 0,
         opacity: 1,
         duration: 1,
         ease: 'power3.out',
-        stagger: 0.15,
         delay: 0.4,
       }
     );
 
-    // Animate body text words
-    const bodyWords = splitTextIntoWords(bodyText.value);
+    // Animate body text
     gsap.fromTo(
-      bodyWords,
+      bodyText.value,
       {
-        y: '100%',
+        y: 30,
         opacity: 0,
       },
       {
-        y: '0%',
+        y: 0,
         opacity: 1,
-        duration: 0.6,
+        duration: 0.8,
         ease: 'power2.out',
-        stagger: 0.05,
-        delay: 0.8,
+        delay: 0.6,
       }
     );
 
@@ -393,7 +308,7 @@ onMounted(() => {
         opacity: 1,
         duration: 1,
         ease: 'power3.out',
-        delay: 1.2,
+        delay: 0.8,
       }
     );
   }
@@ -498,18 +413,7 @@ onBeforeUnmount(() => {
   color: rgba(255, 255, 255, 0.9);
 }
 
-/* Word wrapper for text reveal animation */
-.word-wrapper {
-  display: inline-block;
-  overflow: hidden;
-  vertical-align: bottom;
-  margin-right: 0.75rem; /* Add space between words */
-}
-
-.word {
-  display: inline-block;
-  will-change: transform;
-}
+/* Removed word-wrapper styles - no longer needed */
 
 .text-hero {
   font-size: 3.5rem;

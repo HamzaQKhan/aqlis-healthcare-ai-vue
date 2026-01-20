@@ -51,40 +51,51 @@ const handleMouseMove = (e) => {
 let lenis = null;
 
 onMounted(() => {
-  // Initialize Lenis Smooth Scroll
+  // Initialize Lenis Smooth Scroll - Ultra-optimized for performance
   lenis = new Lenis({
-    duration: 1.2,
+    duration: 0.8, // Further reduced for ultra-smooth feel
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     orientation: 'vertical',
     gestureOrientation: 'vertical',
     smoothWheel: true,
-    wheelMultiplier: 1,
+    wheelMultiplier: 0.6, // Further reduced for smoother scrolling
     smoothTouch: false,
-    touchMultiplier: 2,
+    touchMultiplier: 1.2,
     infinite: false,
   });
 
-  // Connect Lenis with GSAP ScrollTrigger
+  // Connect Lenis with GSAP ScrollTrigger - Optimized
   lenis.on('scroll', ScrollTrigger.update);
 
-  gsap.ticker.add((time) => {
-    lenis.raf(time * 1000);
-  });
+  // Use requestAnimationFrame for better performance
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  
+  requestAnimationFrame(raf);
 
+  // Optimize GSAP ticker
   gsap.ticker.lagSmoothing(0);
+  gsap.ticker.fps(60); // Lock to 60fps
 
   // Initialize parallax
   useParallax();
 
-  // Add parallax effect to hero elements
+  // Add parallax effect to hero elements - Optimized with throttling
+  let parallaxRaf = null;
   const handleParallax = () => {
-    const scrolled = window.pageYOffset;
-    const parallaxElements = document.querySelectorAll('[data-parallax]');
-    
-    parallaxElements.forEach((element) => {
-      const speed = parseFloat(element.dataset.parallax) || 0.5;
-      const yPos = -(scrolled * speed);
-      element.style.transform = `translate3d(0, ${yPos}px, 0)`;
+    if (parallaxRaf) return;
+    parallaxRaf = requestAnimationFrame(() => {
+      const scrolled = window.pageYOffset;
+      const parallaxElements = document.querySelectorAll('[data-parallax]');
+      
+      parallaxElements.forEach((element) => {
+        const speed = parseFloat(element.dataset.parallax) || 0.5;
+        const yPos = -(scrolled * speed);
+        element.style.transform = `translate3d(0, ${yPos}px, 0)`;
+      });
+      parallaxRaf = null;
     });
   };
 
