@@ -2,21 +2,21 @@
   <section
     id="hero"
     ref="heroSection"
-    class="hero hero-fixed min-h-screen flex items-center justify-center overflow-hidden"
+    class="hero min-h-screen flex items-center justify-center overflow-hidden"
     aria-labelledby="hero-title"
   >
     <!-- Video Background -->
-    <div ref="videoContainer" class="absolute inset-0 z-0">
+    <div class="absolute inset-0 z-0">
       <OptimizedVideo
         :optimized-src="randomOptimizedVideo"
         class="w-full h-full object-cover"
       />
       <!-- Overlay for text readability -->
-      <div ref="overlay" class="absolute inset-0 bg-background/60" />
+      <div class="absolute inset-0 bg-background/60" />
     </div>
 
     <!-- Content -->
-    <div ref="contentContainer" class="relative z-10 text-center px-6 max-w-5xl mx-auto pt-24">
+    <div class="relative z-10 text-center px-6 max-w-5xl mx-auto pt-24">
       <p
         ref="subtitleText"
         class="text-muted-custom text-sm md:text-base uppercase tracking-widest mb-6"
@@ -210,42 +210,12 @@ const randomOptimizedVideo = computed(() => {
 });
 
 const heroSection = ref(null);
-const videoContainer = ref(null);
-const overlay = ref(null);
-const contentContainer = ref(null);
 const subtitleText = ref(null);
 const titleText = ref(null);
 const bodyText = ref(null);
 const buttonContainer = ref(null);
-const scrollProgress = ref(0);
-
-const handleScroll = () => {
-  if (!heroSection.value) return;
-  
-  const heroHeight = heroSection.value.offsetHeight;
-  const scrollY = window.scrollY;
-  
-  // Calculate progress (0 to 1) as we scroll through the hero section
-  scrollProgress.value = Math.min(Math.max(scrollY / heroHeight, 0), 1);
-  
-  // Apply transform to move hero section up as we scroll
-  // This creates the effect where hero section slides up and gets covered by next section
-  if (scrollY > 0) {
-    const translateY = -scrollY * 0.3; // Slower movement for smoother effect
-    heroSection.value.style.transform = `translateY(${translateY}px)`;
-    // Fade out as we scroll
-    const opacity = Math.max(1 - scrollY / heroHeight, 0);
-    heroSection.value.style.opacity = opacity;
-  } else {
-    heroSection.value.style.transform = 'translateY(0)';
-    heroSection.value.style.opacity = '1';
-  }
-};
 
 onMounted(() => {
-  window.addEventListener('scroll', handleScroll, { passive: true });
-  handleScroll(); // Initial call
-
   // Setup GSAP Fade-in Animations (Simplified)
   if (subtitleText.value && titleText.value && bodyText.value && buttonContainer.value) {
     // Animate subtitle
@@ -312,84 +282,20 @@ onMounted(() => {
       }
     );
   }
-
-  // Setup GSAP Parallax Scrolling
-  if (heroSection.value && videoContainer.value && contentContainer.value && overlay.value) {
-    const heroHeight = heroSection.value.offsetHeight;
-
-    // Parallax effect for video background (moves slower)
-    gsap.to(videoContainer.value, {
-      yPercent: -50,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: heroSection.value,
-        start: 'top top',
-        end: `+=${heroHeight}`,
-        scrub: true,
-        invalidateOnRefresh: true,
-      },
-    });
-
-    // Parallax effect for overlay (moves at medium speed)
-    gsap.to(overlay.value, {
-      yPercent: -30,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: heroSection.value,
-        start: 'top top',
-        end: `+=${heroHeight}`,
-        scrub: true,
-        invalidateOnRefresh: true,
-      },
-    });
-
-    // Parallax effect for content (moves faster - creates depth)
-    gsap.to(contentContainer.value, {
-      yPercent: -20,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: heroSection.value,
-        start: 'top top',
-        end: `+=${heroHeight}`,
-        scrub: true,
-        invalidateOnRefresh: true,
-      },
-    });
-
-    // Scale effect for content on scroll
-    gsap.to(contentContainer.value, {
-      scale: 0.95,
-      opacity: 0.8,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: heroSection.value,
-        start: 'top top',
-        end: `+=${heroHeight}`,
-        scrub: true,
-        invalidateOnRefresh: true,
-      },
-    });
-  }
 });
 
 onBeforeUnmount(() => {
-  window.removeEventListener('scroll', handleScroll);
   // Cleanup GSAP ScrollTriggers
   ScrollTrigger.getAll().forEach(trigger => trigger.kill());
 });
 </script>
 
 <style scoped>
-/* Hero section fixed positioning for scroll effect */
-.hero-fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+/* Hero section normal positioning */
+.hero {
+  position: relative;
   width: 100%;
   z-index: 1;
-  will-change: transform, opacity;
-  transition: opacity 0.3s ease-out;
 }
 
 /* Fade-in animation */

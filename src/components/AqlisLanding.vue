@@ -4,7 +4,6 @@
     <SiteHeader />
     <main class="pt-0 relative">
       <HeroSection />
-      <div class="section-spacer relative z-10" style="min-height: 100vh; background: transparent; pointer-events: none;"></div>
       <ValuesSection />
       <SolutionsSection />
       <OperateSection />
@@ -51,23 +50,23 @@ const handleMouseMove = (e) => {
 let lenis = null;
 
 onMounted(() => {
-  // Initialize Lenis Smooth Scroll - Ultra-optimized for performance
+  // Initialize Lenis without smooth scrolling for instant scroll
   lenis = new Lenis({
-    duration: 0.8, // Further reduced for ultra-smooth feel
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    duration: 0, // Instant scroll
+    easing: (t) => t, // Linear easing for instant
     orientation: 'vertical',
     gestureOrientation: 'vertical',
-    smoothWheel: true,
-    wheelMultiplier: 0.6, // Further reduced for smoother scrolling
+    smoothWheel: false, // Disable smooth scrolling
+    wheelMultiplier: 1,
     smoothTouch: false,
-    touchMultiplier: 1.2,
+    touchMultiplier: 1,
     infinite: false,
   });
 
-  // Connect Lenis with GSAP ScrollTrigger - Optimized
+  // Connect Lenis with GSAP ScrollTrigger
   lenis.on('scroll', ScrollTrigger.update);
 
-  // Use requestAnimationFrame for better performance
+  // Use requestAnimationFrame for ScrollTrigger updates
   function raf(time) {
     lenis.raf(time);
     requestAnimationFrame(raf);
@@ -1137,9 +1136,9 @@ onBeforeUnmount(() => {
   left: 100%;
 }
 
-/* Smooth scroll behavior */
+/* Instant scroll behavior */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 /* Enhanced button interactions */
