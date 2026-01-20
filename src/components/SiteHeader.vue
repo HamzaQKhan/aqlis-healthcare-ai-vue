@@ -52,13 +52,6 @@
           How we operate
           <span class="nav-link-underline absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-insightTeal to-ethicalTeal transition-all duration-300 group-hover:w-full"></span>
         </a>
-        <a
-          href="#trust"
-          class="nav-link group relative px-2 py-1.5 text-humaneGrey/85 font-medium transition-all duration-200 hover:text-insightTeal hover:scale-105"
-        >
-          Trust &amp; security
-          <span class="nav-link-underline absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-insightTeal to-ethicalTeal transition-all duration-300 group-hover:w-full"></span>
-        </a>
       </nav>
       <div class="nav-actions flex items-center gap-3">
         <button
@@ -171,18 +164,6 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
                 </svg>
                 How we operate
-              </a>
-            </li>
-            <li>
-              <a
-                href="#trust"
-                @click="closeMobileMenu"
-                class="mobile-nav-link group flex items-center gap-3 px-4 py-3 rounded-lg text-base font-medium text-humaneGrey/80 transition-all duration-200 hover:text-insightTeal hover:bg-gradient-to-r hover:from-compassionMint/20 hover:to-compassionMint/10"
-              >
-                <svg class="w-5 h-5 text-insightTeal/70 group-hover:text-insightTeal transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-                Trust &amp; security
               </a>
             </li>
           </ul>

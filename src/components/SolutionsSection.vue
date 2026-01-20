@@ -429,7 +429,7 @@ onBeforeUnmount(() => {
 
 .card-gradient {
   border-radius: 0.75rem;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.2s ease;
 }
 
 .card-icon-wrapper {
@@ -437,12 +437,12 @@ onBeforeUnmount(() => {
 }
 
 .solution-card:hover .card-icon-wrapper {
-  transform: translateY(-2px);
+  transform: translateY(-5px);
 }
 
 /* List item animations */
 .card-list li {
-  transition: transform 0.3s ease, color 0.3s ease;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .solution-card:hover .card-list li {
