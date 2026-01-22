@@ -348,7 +348,7 @@ onBeforeUnmount(() => {
 .text-body {
   font-size: 1.125rem;
   line-height: 1.75;
-  color: rgba(255, 255, 255, 0.95);
+  color: white;
 }
 
 @media (min-width: 768px) {
