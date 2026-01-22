@@ -6,7 +6,7 @@
     <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-insightTeal/30 to-transparent"></div>
     
     <div class="max-w-7xl mx-auto px-6 text-center mb-8 relative z-10">
-      <p class="text-xs font-semibold text-white/70 tracking-wider uppercase">
+      <p class="text-xs font-semibold text-white tracking-wider uppercase">
         Trusted by forward-thinking healthcare organizations
       </p>
     </div>
@@ -15,27 +15,29 @@
       class="trust-mask relative w-full overflow-hidden select-none"
     >
       <div
-        class="trust-marquee flex flex-nowrap gap-12 items-center opacity-60 hover:opacity-100 transition-all duration-500"
+        class="trust-marquee flex flex-nowrap gap-12 items-center transition-all duration-500"
       >
         <template v-for="(org, i) in [...organizations, ...organizations, ...organizations, ...organizations]" :key="i">
           <div class="flex items-center gap-3 flex-shrink-0">
             <!-- Healthcare Icon -->
             <div class="w-8 h-8 flex items-center justify-center">
               <svg
-                class="w-6 h-6 text-insightTeal"
+                class="w-6 h-6"
                 fill="none"
-                stroke="currentColor"
+                stroke="#ffffff"
                 viewBox="0 0 24 24"
+                style="color: #ffffff;"
               >
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
                   :d="org.iconPath"
+                  style="stroke: #ffffff;"
                 />
               </svg>
             </div>
-            <span class="font-bold text-lg text-white tracking-tight">
+            <span class="font-bold text-lg tracking-tight" style="color: #ffffff;">
               {{ org.name }}
             </span>
           </div>
