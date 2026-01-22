@@ -37,7 +37,8 @@ const fsSource = `
   const float minorLineFrequency = 1.0;
   const vec4 gridColor = vec4(0.5);
   const float scale = 5.0;
-  const vec4 lineColor = vec4(0.4, 0.2, 0.8, 1.0);
+  // Brand colors: 246F66, AEC8B9, 383838, 367e72
+  const vec4 lineColor = vec4(0.212, 0.494, 0.447, 1.0); // 367e72 (insight-teal)
   const float minLineWidth = 0.01;
   const float maxLineWidth = 0.2;
   const float lineSpeed = 1.0 * overallSpeed;
@@ -90,8 +91,15 @@ const fsSource = `
     space.x += random(space.y * warpFrequency + iTime * warpSpeed + 2.0) * warpAmplitude * horizontalFade;
     
     vec4 lines = vec4(0.0);
-    vec4 bgColor1 = vec4(0.1, 0.1, 0.3, 1.0);
-    vec4 bgColor2 = vec4(0.3, 0.1, 0.5, 1.0);
+    // Brand colors: 246F66 (ethical-teal), AEC8B9 (compassion-mint), 383838 (humane-grey), 367e72 (insight-teal)
+    vec4 bgColor1 = vec4(0.141, 0.435, 0.4, 1.0); // 246F66 (ethical-teal) - darker
+    vec4 bgColor2 = vec4(0.220, 0.220, 0.220, 1.0); // 383838 (humane-grey)
+    
+    // Brand color palette
+    vec3 ethicalTeal = vec3(0.141, 0.435, 0.4); // 246F66
+    vec3 compassionMint = vec3(0.682, 0.784, 0.725); // AEC8B9
+    vec3 humaneGrey = vec3(0.220, 0.220, 0.220); // 383838
+    vec3 insightTeal = vec3(0.212, 0.494, 0.447); // 367e72
     
     for(int l = 0; l < linesPerGroup; l++) {
       float normalizedLineIndex = float(l) / float(linesPerGroup);
@@ -107,8 +115,12 @@ const fsSource = `
       vec2 circlePosition = vec2(circleX, getPlasmaY(circleX, horizontalFade, offset));
       float circle = drawCircle(circlePosition, 0.01, space) * 4.0;
       
+      // Mix brand colors for lines based on position and time
+      vec3 lineColorMix = mix(insightTeal, ethicalTeal, normalizedLineIndex * 0.5 + rand * 0.3);
+      lineColorMix = mix(lineColorMix, compassionMint, sin(offsetTime + normalizedLineIndex) * 0.2 + 0.2);
+      
       line = line + circle;
-      lines += line * lineColor * rand;
+      lines += line * vec4(lineColorMix, 1.0) * rand;
     }
     
     fragColor = mix(bgColor1, bgColor2, uv.x);

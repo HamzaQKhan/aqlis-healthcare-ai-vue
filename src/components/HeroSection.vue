@@ -339,7 +339,7 @@ onBeforeUnmount(() => {
 }
 
 .accent-teal {
-  background: linear-gradient(to right, #367e72, #246f66, #367e72);
+  background: linear-gradient(to right, #AEC8B9, #246f66, #AEC8B9);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

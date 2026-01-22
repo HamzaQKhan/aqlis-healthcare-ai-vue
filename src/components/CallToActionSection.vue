@@ -67,7 +67,7 @@
                 <h3 class="text-sm font-bold text-humaneGrey mb-0.5 group-hover:text-insightTeal transition-colors duration-300">
                   Expert Support
                 </h3>
-                <p class="text-xs leading-snug text-humaneGrey/80 line-clamp-2">
+                <p class="text-xs leading-snug text-[#383838] line-clamp-2">
                   Dedicated team of healthcare AI specialists ready to guide your implementation journey.
                 </p>
               </div>
@@ -85,7 +85,7 @@
                 <h3 class="text-sm font-bold text-humaneGrey mb-0.5 group-hover:text-insightTeal transition-colors duration-300">
                   Fast Implementation
                 </h3>
-                <p class="text-xs leading-snug text-humaneGrey/80 line-clamp-2">
+                <p class="text-xs leading-snug text-[#383838] line-clamp-2">
                   Get up and running quickly with our streamlined deployment process and comprehensive documentation.
                 </p>
               </div>
@@ -103,7 +103,7 @@
                 <h3 class="text-sm font-bold text-humaneGrey mb-0.5 group-hover:text-insightTeal transition-colors duration-300">
                   Proven Results
                 </h3>
-                <p class="text-xs leading-snug text-humaneGrey/80 line-clamp-2">
+                <p class="text-xs leading-snug text-[#383838] line-clamp-2">
                   Join organizations already seeing measurable improvements in efficiency and patient outcomes.
                 </p>
               </div>
