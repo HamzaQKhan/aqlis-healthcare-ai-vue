@@ -109,7 +109,7 @@ const organizations = [
 }
 
 .trusted-by-slider {
-  background: transparent;
+  background: #AEC8B9;
   position: relative;
 }
 </style>
