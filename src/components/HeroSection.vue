@@ -320,7 +320,7 @@ onBeforeUnmount(() => {
 
 /* Text styles - white for dark background */
 .text-muted-custom {
-  color: rgba(255, 255, 255, 0.9);
+  color: white;
 }
 
 /* Removed word-wrapper styles - no longer needed */
