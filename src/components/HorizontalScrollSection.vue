@@ -1,41 +1,43 @@
 <template>
   <section ref="sectionRef" class="horizontal-scroll-section relative overflow-hidden">
+    <!-- Subtle top border/shadow for separation -->
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-insightTeal/30 to-transparent z-10"></div>
     <!-- Fixed container that holds all pages -->
     <div ref="scrollContainer" class="horizontal-scroll-container flex">
       <!-- Page 1 -->
       <div class="scroll-page min-w-full h-screen flex items-center justify-center relative" data-page="1">
-        <!-- Background elements - Optimized -->
-        <div class="absolute inset-0 bg-gradient-to-br from-humaneGrey via-humaneGrey/95 to-humaneGrey/90 z-0" style="transform: translateZ(0); contain: strict;"></div>
-        <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 2px 2px, #367e72 1px, transparent 0); background-size: 50px 50px; transform: translateZ(0); contain: strict; will-change: auto;"></div>
+        <!-- Background elements - Made transparent for shader visibility -->
+        <div class="absolute inset-0 bg-gradient-to-br from-humaneGrey/20 via-humaneGrey/15 to-humaneGrey/20 z-0" style="transform: translateZ(0); contain: strict;"></div>
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 2px 2px, #367e72 1px, transparent 0); background-size: 50px 50px; transform: translateZ(0); contain: strict; will-change: auto;"></div>
         
         <!-- Images Only - Page 1 -->
-        <div class="animated-elements absolute inset-0 flex items-center justify-center gap-6 z-[5]" style="transform: translateZ(0); will-change: contents;">
+        <div class="animated-elements absolute inset-0 flex items-center justify-center gap-6 z-[50]" style="transform: translateZ(0); will-change: contents;">
           <!-- Professional Healthcare Images - Using Local Assets -->
           <img 
             :src="doctorsImg" 
             alt="Healthcare Professional" 
-            class="w-[500px] h-[400px] object-cover rounded-2xl opacity-60 animate-float-1"
+            class="w-[500px] h-[400px] object-cover rounded-2xl opacity-100 animate-float-1"
             style="top: 15%; left: 5%; transform: translateZ(0); will-change: transform;"
             loading="eager"
           />
           <img 
             :src="medicalMachineRoomImg" 
             alt="Medical Team" 
-            class="w-[500px] h-[400px] object-cover rounded-xl opacity-55 animate-float-2"
+            class="w-[500px] h-[400px] object-cover rounded-xl opacity-100 animate-float-2"
             style="bottom: 15%; right: 5%; transform: translateZ(0); will-change: transform;"
             loading="eager"
           />
           <img 
             :src="machineImg" 
             alt="Hospital Technology" 
-            class="w-[500px] h-[400px] object-cover rounded-2xl opacity-50 animate-float-3"
+            class="w-[500px] h-[400px] object-cover rounded-2xl opacity-100 animate-float-3"
             style="top: 30%; left: 25%; transform: translateZ(0); will-change: transform;"
             loading="eager"
           />
           <img 
             :src="brainImg" 
             alt="Medical Care" 
-            class="w-[500px] h-[400px] object-cover rounded-xl opacity-58 animate-float-4"
+            class="w-[500px] h-[400px] object-cover rounded-xl opacity-100 animate-float-4"
             style="bottom: 20%; left: 15%; transform: translateZ(0); will-change: transform;"
             loading="eager"
           />
@@ -43,7 +45,7 @@
           <img 
             :src="doctorsImg" 
             alt="Healthcare Professional" 
-            class="w-[500px] h-[400px] object-cover rounded-2xl opacity-65 animate-float-1"
+            class="w-[500px] h-[400px] object-cover rounded-2xl opacity-100 animate-float-1"
             style="top: 25%; left: 2%; transform: translateZ(0); will-change: transform;"
             loading="eager"
           />
@@ -52,39 +54,39 @@
 
       <!-- Page 2 -->
       <div class="scroll-page min-w-full h-screen flex items-center justify-center relative" data-page="2">
-        <!-- Background elements - Optimized -->
-        <div class="absolute inset-0 bg-gradient-to-br from-insightTeal/90 via-ethicalTeal/85 to-insightTeal/90 z-0" style="transform: translateZ(0); contain: strict;"></div>
-        <div class="absolute inset-0 opacity-15" style="background-image: radial-gradient(circle at 2px 2px, #ffffff 1px, transparent 0); background-size: 40px 40px; transform: translateZ(0); contain: strict; will-change: auto;"></div>
+        <!-- Background elements - Made transparent for shader visibility -->
+        <div class="absolute inset-0 bg-gradient-to-br from-insightTeal/15 via-ethicalTeal/12 to-insightTeal/15 z-0" style="transform: translateZ(0); contain: strict;"></div>
+        <div class="absolute inset-0 opacity-8" style="background-image: radial-gradient(circle at 2px 2px, #ffffff 1px, transparent 0); background-size: 40px 40px; transform: translateZ(0); contain: strict; will-change: auto;"></div>
         
         <!-- Images Only - Page 2 -->
-        <div class="animated-elements absolute inset-0 flex items-center justify-center gap-6 z-[5]" style="transform: translateZ(0); will-change: contents;">
+        <div class="animated-elements absolute inset-0 flex items-center justify-center gap-6 z-[50]" style="transform: translateZ(0); will-change: contents;">
           <!-- Professional AI & Healthcare Technology Images - Using Local Assets -->
           <img 
             :src="brainImg" 
             alt="AI Technology" 
             class="w-[500px] h-[400px] object-cover rounded-2xl opacity-60 animate-float-1"
-            style="top: 15%; left: 5%; transform: translateZ(0); will-change: transform;"
+            style="top: 15%; left: 5%; transform: translateZ(0); will-change: transform; z-index: 51;"
             loading="eager"
           />
           <img 
             :src="machineImg" 
             alt="Data Analytics" 
             class="w-[500px] h-[400px] object-cover rounded-xl opacity-55 animate-float-2"
-            style="bottom: 15%; right: 5%; transform: translateZ(0); will-change: transform;"
+            style="bottom: 15%; right: 5%; transform: translateZ(0); will-change: transform; z-index: 51;"
             loading="eager"
           />
           <img 
             :src="medicalMachineRoomImg" 
             alt="Digital Health" 
             class="w-[500px] h-[400px] object-cover rounded-2xl opacity-50 animate-float-3"
-            style="top: 30%; left: 25%; transform: translateZ(0); will-change: transform;"
+            style="top: 30%; left: 25%; transform: translateZ(0); will-change: transform; z-index: 51;"
             loading="eager"
           />
           <img 
             :src="doctorsImg" 
             alt="Healthcare Innovation" 
             class="w-[500px] h-[400px] object-cover rounded-xl opacity-58 animate-float-4"
-            style="bottom: 20%; left: 15%; transform: translateZ(0); will-change: transform;"
+            style="bottom: 20%; left: 15%; transform: translateZ(0); will-change: transform; z-index: 51;"
             loading="eager"
           />
           <!-- Left side image to fill empty area -->
@@ -92,7 +94,7 @@
             :src="brainImg" 
             alt="Medical Technology" 
             class="w-[500px] h-[400px] object-cover rounded-2xl opacity-65 animate-float-2"
-            style="top: 25%; left: 2%; transform: translateZ(0); will-change: transform;"
+            style="top: 25%; left: 2%; transform: translateZ(0); will-change: transform; z-index: 51;"
             loading="eager"
           />
         </div>

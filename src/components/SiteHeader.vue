@@ -9,20 +9,18 @@
       class="site-header-inner relative mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-5"
     >
       <div class="brand flex items-center gap-3 group cursor-pointer">
-        <div
-          class="brand-mark relative h-10 w-10 rounded-full bg-gradient-to-br from-compassionMint via-insightTeal to-ethicalTeal shadow-[0_4px_12px_rgba(36,111,102,0.25)] ring-4 ring-compassionMint/30 transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_6px_20px_rgba(36,111,102,0.35)] group-hover:ring-compassionMint/50"
-          aria-hidden="true"
-        >
-          <div class="absolute inset-0 rounded-full bg-gradient-to-br from-white/30 to-transparent"></div>
-          <div class="absolute inset-2 rounded-full bg-gradient-to-br from-compassionMint to-insightTeal opacity-60"></div>
-        </div>
+        <img
+          :src="logoImage"
+          alt="Aqlis Logo"
+          class="brand-mark h-10 w-10 object-contain transition-all duration-300 group-hover:scale-110"
+        />
         <div class="brand-text flex flex-col">
           <span
             class="brand-name text-[0.85rem] font-bold uppercase tracking-[0.2em] text-humaneGrey transition-colors duration-300 group-hover:text-insightTeal"
           >
             Aqlis
           </span>
-          <span class="brand-tagline text-[0.75rem] font-medium text-insightTeal/90">
+          <span class="brand-tagline text-[0.75rem] font-medium text-white/90">
             Ethical Healthcare AI
           </span>
         </div>
@@ -33,21 +31,21 @@
       >
         <a
           href="#solutions"
-          class="nav-link group relative px-2 py-1.5 text-humaneGrey/85 font-medium transition-all duration-200 hover:text-insightTeal hover:scale-105"
+          class="nav-link group relative px-2 py-1.5 text-white/85 font-medium transition-all duration-200 hover:text-insightTeal hover:scale-105"
         >
           Solutions
           <span class="nav-link-underline absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-insightTeal to-ethicalTeal transition-all duration-300 group-hover:w-full"></span>
         </a>
         <a
           href="#values"
-          class="nav-link group relative px-2 py-1.5 text-humaneGrey/85 font-medium transition-all duration-200 hover:text-insightTeal hover:scale-105"
+          class="nav-link group relative px-2 py-1.5 text-white/85 font-medium transition-all duration-200 hover:text-insightTeal hover:scale-105"
         >
           Values
           <span class="nav-link-underline absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-insightTeal to-ethicalTeal transition-all duration-300 group-hover:w-full"></span>
         </a>
         <a
           href="#operate"
-          class="nav-link group relative px-2 py-1.5 text-humaneGrey/85 font-medium transition-all duration-200 hover:text-insightTeal hover:scale-105"
+          class="nav-link group relative px-2 py-1.5 text-white/85 font-medium transition-all duration-200 hover:text-insightTeal hover:scale-105"
         >
           How we operate
           <span class="nav-link-underline absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-insightTeal to-ethicalTeal transition-all duration-300 group-hover:w-full"></span>
@@ -193,6 +191,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
+import logoImage from '../assets/images/aqlis_logo.png';
 
 const scrolled = ref(false);
 const isMobileMenuOpen = ref(false);

@@ -1,15 +1,17 @@
 <template>
   <section class="clients-slider-section relative py-20 overflow-hidden">
-    <!-- Background Pattern -->
-    <div class="absolute inset-0 bg-gradient-to-br from-compassionMint/8 via-pureWhite to-compassionMint/12"></div>
-    <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at 2px 2px, #246F66 1px, transparent 0); background-size: 40px 40px;"></div>
+    <!-- Subtle top border/shadow for separation -->
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-insightTeal/30 to-transparent z-10"></div>
+    <!-- Background Pattern - Made transparent for shader visibility -->
+    <div class="absolute inset-0 bg-gradient-to-br from-compassionMint/5 via-transparent to-compassionMint/8"></div>
+    <div class="absolute inset-0 opacity-[0.02]" style="background-image: radial-gradient(circle at 2px 2px, #246F66 1px, transparent 0); background-size: 40px 40px;"></div>
     
     <div class="container mx-auto px-6 relative z-10">
       <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-humaneGrey mb-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
           Trusted by <span class="text-insightTeal">200+</span> healthcare organizations
         </h2>
-        <p class="text-humaneGrey/70 text-lg">
+        <p class="text-white/90 text-lg">
           Leading healthcare institutions trust Aqlis for their AI needs
         </p>
       </div>
@@ -152,7 +154,7 @@ onBeforeUnmount(() => {
 <style scoped>
 .clients-slider-section {
   position: relative;
-  background: linear-gradient(135deg, rgba(174, 200, 185, 0.08) 0%, rgba(255, 255, 255, 1) 50%, rgba(174, 200, 185, 0.12) 100%);
+  background: transparent;
 }
 
 .clients-slider-wrapper {

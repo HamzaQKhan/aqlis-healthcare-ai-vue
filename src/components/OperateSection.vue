@@ -4,16 +4,17 @@
     class="section section-behaviors scroll-animate relative overflow-hidden"
     aria-labelledby="operate-title"
   >
-    <OperateVectors class="absolute inset-0 opacity-45" />
+    <!-- Subtle top border/shadow for separation -->
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-insightTeal/30 to-transparent z-10"></div>
     <div class="section-inner relative z-10 mx-auto max-w-5xl px-6 py-4">
       <div class="section-heading mb-8 max-w-xl">
         <h2
           id="operate-title"
-          class="text-2xl font-semibold tracking-tight text-humaneGrey"
+          class="text-2xl font-semibold tracking-tight text-white"
         >
           How we operate as a partner
         </h2>
-        <p class="section-lead mt-2 text-sm leading-relaxed text-humaneGrey/90">
+        <p class="section-lead mt-2 text-sm leading-relaxed text-white/90">
           Beyond technology, Aqlis is defined by how we work with healthcare
           organizations and their communities.
         </p>
@@ -156,7 +157,6 @@
 </template>
 
 <script setup>
-import OperateVectors from './OperateVectors.vue';
 </script>
 
 <style scoped>

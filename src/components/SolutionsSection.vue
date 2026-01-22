@@ -5,7 +5,8 @@
     class="section section-solutions scroll-animate relative overflow-hidden"
     aria-labelledby="solutions-title"
   >
-    <SolutionsVectors class="absolute inset-0 opacity-40" />
+    <!-- Subtle top border/shadow for separation -->
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-insightTeal/30 to-transparent z-10"></div>
     
     <!-- Floating animated elements -->
     <div class="floating-elements absolute inset-0 pointer-events-none z-0">
@@ -18,11 +19,11 @@
       <div ref="sectionHeading" class="section-heading mb-8 max-w-xl">
         <h2
           id="solutions-title"
-          class="text-2xl font-semibold tracking-tight text-humaneGrey"
+          class="text-2xl font-semibold tracking-tight text-white"
         >
           AI that works for healthcare
         </h2>
-        <p class="section-lead mt-2 text-sm leading-relaxed text-humaneGrey/90">
+        <p class="section-lead mt-2 text-sm leading-relaxed text-white/90">
           Purpose-built tools for the real constraints of clinical environments.
           Not generic automation, but systems tailored to how your teams
           actually work today.
@@ -205,7 +206,6 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import SolutionsVectors from './SolutionsVectors.vue';
 
 gsap.registerPlugin(ScrollTrigger);
 

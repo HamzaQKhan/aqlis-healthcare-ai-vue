@@ -5,15 +5,19 @@
     class="hero min-h-screen flex items-center justify-center overflow-hidden"
     aria-labelledby="hero-title"
   >
-    <!-- Video Background -->
+    <!-- Video Background - COMMENTED OUT to use ShaderBackground from AqlisLanding -->
+    <!--
     <div class="absolute inset-0 z-0">
       <OptimizedVideo
         :optimized-src="randomOptimizedVideo"
         class="w-full h-full object-cover"
       />
-      <!-- Overlay for text readability -->
       <div class="absolute inset-0 bg-background/60" />
     </div>
+    -->
+    
+    <!-- Overlay for text readability - Made very light so ShaderBackground shows through -->
+    <div class="absolute inset-0 bg-black/10 z-[1]" />
 
     <!-- Content -->
     <div class="relative z-10 text-center px-6 max-w-5xl mx-auto pt-24">
@@ -75,9 +79,6 @@
       <div class="particle absolute w-2 h-2 bg-compassionMint/30 rounded-full" style="left: 80%; top: 20%; animation: float 7s ease-in-out infinite 1s;"></div>
     </div>
     
-    <div class="hero-vectors-wrapper absolute left-0 top-0 bottom-0 w-full lg:w-[60%] max-w-[700px] z-[1] pointer-events-none overflow-hidden">
-      <HealthVectors class="h-full w-full opacity-[0.50]" />
-    </div>
     
     <div
       class="hero-inner relative mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 lg:grid-cols-[1.3fr_1fr] z-10"
@@ -184,7 +185,8 @@
 import { computed, ref, onMounted, onBeforeUnmount } from 'vue';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import OptimizedVideo from './OptimizedVideo.vue';
+// Video import commented out - using ShaderBackground from AqlisLanding instead
+// import OptimizedVideo from './OptimizedVideo.vue';
 // OLD IMPORTS - COMMENTED OUT
 // import HealthVectors from './HealthVectors.vue';
 // import HealthcareIllustration from './HealthcareIllustration.vue';
@@ -192,22 +194,23 @@ import OptimizedVideo from './OptimizedVideo.vue';
 // Register GSAP ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
-import stars from '../assets/videos/stars.mp4';
-import clouds from '../assets/videos/clouds.mp4';
-import waves_animation from '../assets/videos/waves_animation.mp4';
+// Video imports commented out - using ShaderBackground instead
+// import stars from '../assets/videos/stars.mp4';
+// import clouds from '../assets/videos/clouds.mp4';
+// import waves_animation from '../assets/videos/waves_animation.mp4';
 
-const OPTIMIZED_VIDEO_URLS = [
-  stars,
-  clouds,
-  waves_animation,
-];
+// const OPTIMIZED_VIDEO_URLS = [
+//   stars,
+//   clouds,
+//   waves_animation,
+// ];
 
-const randomOptimizedVideo = computed(() => {
-  if (OPTIMIZED_VIDEO_URLS.length > 0) {
-    return OPTIMIZED_VIDEO_URLS[Math.floor(Math.random() * OPTIMIZED_VIDEO_URLS.length)];
-  }
-  return null;
-});
+// const randomOptimizedVideo = computed(() => {
+//   if (OPTIMIZED_VIDEO_URLS.length > 0) {
+//     return OPTIMIZED_VIDEO_URLS[Math.floor(Math.random() * OPTIMIZED_VIDEO_URLS.length)];
+//   }
+//   return null;
+// });
 
 const heroSection = ref(null);
 const subtitleText = ref(null);
@@ -296,6 +299,7 @@ onBeforeUnmount(() => {
   position: relative;
   width: 100%;
   z-index: 1;
+  background: transparent;
 }
 
 /* Fade-in animation */

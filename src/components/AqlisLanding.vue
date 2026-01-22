@@ -1,9 +1,12 @@
 <template>
   <div class="aqlis-page" @mousemove="handleMouseMove">
+    <!-- WebGL Shader Background -->
+    <ShaderBackground />
     <div class="cursor-follower" :style="cursorStyle"></div>
     <SiteHeader />
     <main class="pt-0 relative">
       <HeroSection />
+      <TrustedBySlider />
       <ValuesSection />
       <SolutionsSection />
       <OperateSection />
@@ -25,8 +28,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
+import ShaderBackground from './ShaderBackground.vue';
 import SiteHeader from './SiteHeader.vue';
 import HeroSection from './HeroSection.vue';
+import TrustedBySlider from './TrustedBySlider.vue';
 import ValuesSection from './ValuesSection.vue';
 import SolutionsSection from './SolutionsSection.vue';
 import OperateSection from './OperateSection.vue';
@@ -112,12 +117,8 @@ onBeforeUnmount(() => {
 <style>
 .aqlis-page {
   min-height: 100vh;
-  background-color: var(--pure-white);
+  background-color: transparent;
   color: var(--humane-grey);
-  background-image:
-    radial-gradient(circle at 0% 0%, rgba(174, 200, 185, 0.35), transparent 55%),
-    radial-gradient(circle at 100% 100%, rgba(54, 126, 114, 0.12), transparent 55%);
-  background-attachment: fixed;
   position: relative;
   overflow-x: hidden;
 }
@@ -665,15 +666,15 @@ onBeforeUnmount(() => {
 }
 
 .section-values {
-  background-color: var(--pure-white);
+  background-color: transparent;
 }
 
 .section-solutions {
-  background-color: var(--compassion-mint);
+  background-color: transparent;
 }
 
 .section-behaviors {
-  background-color: var(--pure-white);
+  background-color: transparent;
 }
 
 .section-trust {
@@ -689,7 +690,7 @@ onBeforeUnmount(() => {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.6;
+  opacity: 0.15;
   mix-blend-mode: normal;
   z-index: -1;
 }
@@ -870,7 +871,7 @@ onBeforeUnmount(() => {
 }
 
 .section-cta {
-  background-color: var(--compassion-mint);
+  background-color: transparent;
   position: relative;
   overflow: hidden;
 }

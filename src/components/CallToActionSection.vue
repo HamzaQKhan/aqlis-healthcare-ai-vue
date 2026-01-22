@@ -1,7 +1,8 @@
 <template>
   <section class="section section-cta scroll-animate relative overflow-hidden" aria-labelledby="cta-title">
-    <div class="absolute inset-0 bg-gradient-to-br from-compassionMint/30 via-insightTeal/20 to-compassionMint/40"></div>
-    <CTAVectors class="absolute inset-0 opacity-40" />
+    <!-- Subtle top border/shadow for separation -->
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-insightTeal/30 to-transparent z-10"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-compassionMint/10 via-insightTeal/8 to-compassionMint/12"></div>
     
     <div class="section-inner section-inner-cta relative z-10 mx-auto max-w-6xl px-6 py-8">
       <div class="cta-layout grid gap-8 md:grid-cols-[1.2fr_1fr] items-center">
@@ -20,11 +21,11 @@
           
           <h2
             id="cta-title"
-            class="text-2xl font-bold tracking-tight text-humaneGrey mb-3 sm:text-3xl bg-gradient-to-r from-humaneGrey via-insightTeal to-humaneGrey bg-clip-text text-transparent"
+            class="text-2xl font-bold tracking-tight text-white mb-3 sm:text-3xl bg-gradient-to-r from-humaneGrey via-insightTeal to-humaneGrey bg-clip-text text-transparent"
           >
             Ready to build more humane healthcare AI?
           </h2>
-          <p class="text-sm leading-relaxed text-humaneGrey/90 sm:text-base mb-5">
+          <p class="text-sm leading-relaxed text-white/90 sm:text-base mb-5">
             Join healthcare organizations that are reshaping clinical workflows
             with ethical, privacy-conscious AI that keeps humans at the center of
             care.
@@ -115,7 +116,6 @@
 </template>
 
 <script setup>
-import CTAVectors from './CTAVectors.vue';
 </script>
 
 <style scoped>
